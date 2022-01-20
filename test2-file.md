@@ -2,4 +2,5 @@
 
 [fisrt link](https://google.com)
 [second link](https://youtube.com)
-[] (fake)
+
+[this is not a link] (some notes)
