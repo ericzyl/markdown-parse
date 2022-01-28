@@ -33,6 +33,12 @@ public class MarkdownParse {
 		Path fileName = Path.of(args[0]);
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = getLinks(contents);
-        System.out.println(links);
+        if(links.size() == 0){
+            System.out.println("No link in this file.");
+        }
+        else{
+            System.out.println(links);
+        }
+        
     }
 }
