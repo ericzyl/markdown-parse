@@ -51,6 +51,18 @@ public class MarkdownParseTest {
         List<String> expected = List.of("page.com");
         assertEquals(expected, MarkdownParse.getLinks(contents));
     }
+
+    @Test
+    public void testGetLinksFour() throws IOException{
+        String filename = "test-file9.md";
+        //To get path of file
+        Path path = Paths.get(filename);
+        //To print absolute path of file
+        String contents = Files.readString(path);
+        List<String> expected = List.of("https://something.com", "some-page1.html", "some-page2.html", "some-page3.html", "some-page4.html", 
+        "some-page5.html","some-page6.html");
+        assertEquals(expected, MarkdownParse.getLinks(contents));
+    }
  
 }
 
