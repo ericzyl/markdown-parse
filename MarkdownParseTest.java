@@ -32,7 +32,7 @@ public class MarkdownParseTest {
 
     @Test
     public void testGetLinksTwo() throws IOException{
-        String filename = "test-file.md";
+        String filename = "test-file2.md";
         //To get path of file
         Path path = Paths.get(filename);
         //To print absolute path of file
@@ -43,12 +43,12 @@ public class MarkdownParseTest {
 
     @Test
     public void testGetLinksThree() throws IOException{
-        String filename = "test-file.md";
+        String filename = "test-file6.md";
         //To get path of file
         Path path = Paths.get(filename);
         //To print absolute path of file
         String contents = Files.readString(path);
-        List<String> expected = List.of("https://something.com", "some-page.html");
+        List<String> expected = List.of("page.com");
         assertEquals(expected, MarkdownParse.getLinks(contents));
     }
  
