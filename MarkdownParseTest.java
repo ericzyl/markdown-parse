@@ -10,6 +10,33 @@ import org.junit.*;
 
 public class MarkdownParseTest {
     @Test
+    public void testSnippet1() throws IOException{
+        String filename = "snippet1.md";
+        Path path = Paths.get(filename);
+        String contents = Files.readString(path);
+        List<String> expected = List.of("`google.com", "google.com", "ucsd.edu");
+        assertEquals(expected, MarkdownParse.getLinks(contents));
+    }
+
+    @Test
+    public void testSnippet2() throws IOException{
+        String filename = "snippet2.md";
+        Path path = Paths.get(filename);
+        String contents = Files.readString(path);
+        List<String> expected = List.of("a.com", "a.com(())", "example.com");
+        assertEquals(expected, MarkdownParse.getLinks(contents));
+    }
+
+    @Test
+    public void testSnippet3() throws IOException{
+        String filename = "snippet3.md";
+        Path path = Paths.get(filename);
+        String contents = Files.readString(path);
+        List<String> expected = List.of("https://ucsd-cse15l-w22.github.io/");
+        assertEquals(expected, MarkdownParse.getLinks(contents));
+    }
+
+    @Test
     public void addition() {
         assertEquals(2, 1 + 1);
     }
@@ -28,6 +55,10 @@ public class MarkdownParseTest {
         String contents = Files.readString(path);
         List<String> expected = List.of("https://something.com", "some-page.html");
         assertEquals(expected, MarkdownParse.getLinks(contents));
+
+        // String contents = Files.readString(Path.of("./snippet1.md"));
+        // List<String> expected = List.of("https://something.com","some-page.html");
+        // assertEquals(expected,MarkdownParse.getLinks(contents));
     }
 
     @Test
